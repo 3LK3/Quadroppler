@@ -24,7 +24,7 @@ jobs:
           mv ${{ github.workspace }}/.godot_install/Godot_v4.3-rc1_linux.x86_64 ${{ github.workspace }}/.godot_install/godot
           echo "${{ github.workspace }}/.godot_install/" >> $GITHUB_PATH
       - name: Verifiy godot
-        run: godot_console --version
+        run: godot --version
 #      - name: Download godot export templates
 #        run: |
 #          wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc1/Godot_v4.3-rc1_export_templates.tpz
@@ -51,7 +51,7 @@ jobs:
       - name: Run export
         run: |
           mkdir -p dist/web
-          godot_console --headless --path ${{ github.workspace }} --export-release "Web" dist/web/quadroppler.html
+          godot --headless --path ${{ github.workspace }} --export-release "Web" dist/web/quadroppler.html
           cd dist/web
           tar -czvf quadroppler_web_${{ github.ref_name }}.tgz *
           cd ${{ github.workspace }}

@@ -4,6 +4,12 @@
 
 ## Style guide
 
+### Version Control
+
+#### Commits
+
+📡 = Github actions
+
 ### GDScript
 
 **Naming conventions**
