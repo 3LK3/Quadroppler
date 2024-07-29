@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PieceData" load_steps=7 format=3 uid="uid://ca1k4crrtmiwi"]
+
+[ext_resource type="Script" path="res://game/core/pieces/piece_rotation_state.gd" id="1_c1mro"]
+[ext_resource type="Script" path="res://game/core/pieces/piece_data.gd" id="2_pnadt"]
+
+[sub_resource type="Resource" id="Resource_tobjy"]
+script = ExtResource("1_c1mro")
+bounding_box_size = Vector2i(3, 3)
+coordinates = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(2, 1)])
+
+[sub_resource type="Resource" id="Resource_3xrib"]
+script = ExtResource("1_c1mro")
+bounding_box_size = Vector2i(3, 3)
+coordinates = Array[Vector2i]([Vector2i(2, 0), Vector2i(1, 1), Vector2i(2, 1), Vector2i(1, 2)])
+
+[sub_resource type="Resource" id="Resource_h480a"]
+script = ExtResource("1_c1mro")
+bounding_box_size = Vector2i(3, 3)
+coordinates = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 2), Vector2i(2, 2)])
+
+[sub_resource type="Resource" id="Resource_6e7n5"]
+script = ExtResource("1_c1mro")
+bounding_box_size = Vector2i(3, 3)
+coordinates = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(0, 2)])
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_pnadt")
+color = Color(0.996078, 0.0627451, 0.235294, 0.784314)
+rotation_states = Array[ExtResource("1_c1mro")]([SubResource("Resource_tobjy"), SubResource("Resource_3xrib"), SubResource("Resource_h480a"), SubResource("Resource_6e7n5")])

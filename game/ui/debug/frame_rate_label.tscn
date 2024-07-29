@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce43ema6vs1hw"]
+
+[ext_resource type="Script" path="res://game/ui/debug/frame_rate_label.gd" id="1_ibd8w"]
+
+[node name="FrameRateLabel" type="Label"]
+theme_override_font_sizes/font_size = 8
+text = "<X>"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("1_ibd8w")

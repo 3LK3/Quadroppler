@@ -1,0 +1,67 @@
+on:
+  release:
+    types: [published]
+
+jobs:
+  export_web:
+    name: Export Web
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 wget unzip
+#          pip3 install scons
+      - name: Setup godot
+        run: |
+          mkdir ${{ github.workspace }}/.godot_install
+          wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc1/Godot_v4.3-rc1_linux.x86_64.zip
+          unzip Godot.zip -d ${{ github.workspace }}/.godot_install
+          mv ${{ github.workspace }}/.godot_install/Godot_v4.3-rc1_linux.x86_64 ${{ github.workspace }}/.godot_install/godot
+          echo "${{ github.workspace }}/.godot_install/" >> $GITHUB_PATH
+      - name: Verifiy godot
+        run: godot_console --version
+#      - name: Download godot export templates
+#        run: |
+#          wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc1/Godot_v4.3-rc1_export_templates.tpz
+#          mkdir temp
+#          unzip Godot_Export_Templates.zip -d temp/
+#          sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.rc1/
+#          sudo cp -r temp/templates/** /home/runner/.local/share/godot/export_templates/4.3.rc1/
+#          rm -rf temp
+#      - name: Setup emsdk
+#        uses: mymindstorm/setup-emsdk@v14
+#        with:
+          # Make sure to set a version number!
+#          version: 3.1.64
+          # This is the name of the cache folder.
+          # The cache folder will be placed in the build directory,
+          #  so make sure it doesn't conflict with anything!
+#          actions-cache-folder: 'emsdk-cache'
+#      - name: Verify emcc
+#        run: emcc -v
+      # - name: Compile GDExtensions
+      #   run: |
+      #     cd extensions/quadroppler_core
+      #     scons platform=web target=template_release threads=no
+      - name: Run export
+        run: |
+          mkdir -p dist/web
+          godot_console --headless --path ${{ github.workspace }} --export-release "Web" dist/web/quadroppler.html
+          cd dist/web
+          tar -czvf quadroppler_web_${{ github.ref_name }}.tgz *
+          cd ${{ github.workspace }}
+      - uses: actions/upload-artifact@v4
+        with:
+          # Name of the artifact to upload.
+          # Optional. Default is 'artifact'
+          name: "quadroppler_web_${{ github.ref_name }}"
+      
+          # A file, directory or wildcard pattern that describes what to upload
+          # Required.
+          path: dist/web/quadroppler_web_${{ github.ref_name }}.tgz
+              

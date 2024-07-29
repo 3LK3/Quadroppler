@@ -1,0 +1,15 @@
+[gd_scene load_steps=10 format=3 uid="uid://pu205xyvm25a"]
+
+[ext_resource type="Script" path="res://game/core/systems/piece_definition_system.gd" id="1_l7xwi"]
+[ext_resource type="Script" path="res://game/core/pieces/piece_data.gd" id="2_k0c7y"]
+[ext_resource type="Resource" uid="uid://drcxv87ungyd2" path="res://game/pieces/I.tres" id="3_abf5c"]
+[ext_resource type="Resource" uid="uid://x3cfcvrptecu" path="res://game/pieces/J.tres" id="4_562h3"]
+[ext_resource type="Resource" uid="uid://cullaob40xw5a" path="res://game/pieces/L.tres" id="5_7670u"]
+[ext_resource type="Resource" uid="uid://byxmjlt37vlrd" path="res://game/pieces/O.tres" id="6_uttda"]
+[ext_resource type="Resource" uid="uid://d1rkgtuwy4dba" path="res://game/pieces/S.tres" id="7_erl14"]
+[ext_resource type="Resource" uid="uid://cmrodwp72c78q" path="res://game/pieces/T.tres" id="8_8tlq6"]
+[ext_resource type="Resource" uid="uid://ca1k4crrtmiwi" path="res://game/pieces/Z.tres" id="9_f73kb"]
+
+[node name="PieceDefinitionSystem" type="Node"]
+script = ExtResource("1_l7xwi")
+pieces = Array[ExtResource("2_k0c7y")]([ExtResource("3_abf5c"), ExtResource("4_562h3"), ExtResource("5_7670u"), ExtResource("6_uttda"), ExtResource("7_erl14"), ExtResource("8_8tlq6"), ExtResource("9_f73kb")])

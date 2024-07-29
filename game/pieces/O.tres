@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PieceData" load_steps=4 format=3 uid="uid://byxmjlt37vlrd"]
+
+[ext_resource type="Script" path="res://game/core/pieces/piece_rotation_state.gd" id="1_lfkvc"]
+[ext_resource type="Script" path="res://game/core/pieces/piece_data.gd" id="2_pwiip"]
+
+[sub_resource type="Resource" id="Resource_a8esg"]
+script = ExtResource("1_lfkvc")
+bounding_box_size = Vector2i(2, 2)
+coordinates = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1)])
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_pwiip")
+color = Color(1, 0.870588, 0, 0.784314)
+rotation_states = Array[ExtResource("1_lfkvc")]([SubResource("Resource_a8esg")])

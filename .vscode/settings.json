@@ -1,0 +1,8 @@
+{
+    "godotTools.inlayHints.gdscript": false,
+    "godotTools.lsp.autoReconnect.attempts": 5,
+    "editor.insertSpaces": false,
+    "editor.indentSize": "tabSize",
+    "editor.detectIndentation": true,
+    "extensions.ignoreRecommendations": false
+}

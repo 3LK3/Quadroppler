@@ -1,0 +1,1 @@
+Godot_console --headless --path . --export-release "Web" ../Quadroppler_dist/web/quadroppler.html

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SceneTransitionOptions" load_steps=2 format=3 uid="uid://b4ugfnqadon4u"]
+
+[ext_resource type="Script" path="res://game/core/scenes/scene_transition_options.gd" id="1_y86jr"]
+
+[resource]
+script = ExtResource("1_y86jr")
+fade_out_speed = 1.0
+fade_in_speed = 1.0
+fade_out_pattern = "fade"
+fade_in_pattern = "fade"
+fade_out_smoothness = 0.1
+fade_in_smoothness = 0.1
+fade_out_inverted = false
+fade_in_inverted = false
+color = Color(0, 0, 0, 1)
+timeout = 0.0
+clickable = false
+add_to_back = true
