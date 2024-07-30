@@ -26,10 +26,12 @@ PieceDefinitionSystem="*res://game/core/systems/piece_definition_system.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1450
+window/size/window_height_override=820
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
@@ -38,7 +40,6 @@ enabled=PackedStringArray("res://addons/quadroppler_core/plugin.cfg", "res://add
 [gui]
 
 theme/custom="res://game/ui/theme_default.tres"
-theme/custom_font="res://assets/fonts/komiko.ttf"
 
 [input]
 
@@ -76,4 +77,6 @@ config/preview_tiles=3
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/lossless_compression/force_png=true
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+2d/snap/snap_2d_transforms_to_pixel=true

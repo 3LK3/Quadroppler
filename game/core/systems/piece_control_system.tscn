@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://fm8f76m5j0oa"]
+[gd_scene load_steps=2 format=3 uid="uid://fm8f76m5j0oa"]
 
 [ext_resource type="Script" path="res://game/core/systems/piece_control_system.gd" id="1_xjerp"]
-[ext_resource type="Texture2D" uid="uid://bgypilw4twuei" path="res://assets/textures/tilesets/pieces/tile_b_orange_03.png" id="2_l6asc"]
 
 [node name="PieceControlSystem" type="Node"]
 script = ExtResource("1_xjerp")
-tile_texture = ExtResource("2_l6asc")

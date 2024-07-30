@@ -1,22 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg8a5w6qb67aw"]
+[gd_scene load_steps=3 format=3 uid="uid://cg8a5w6qb67aw"]
 
-[ext_resource type="Theme" uid="uid://btmri1uifbhrh" path="res://game/ui/theme_default.tres" id="1_8thtl"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_upvrt"]
 [ext_resource type="Resource" uid="uid://b4ugfnqadon4u" path="res://scenes/default_transition_options.tres" id="3_npssk"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_8thtl")
+[node name="MainMenu" type="Node"]
 script = ExtResource("1_upvrt")
 transition_options = ExtResource("3_npssk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,75 +18,81 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.355297, 0.00755119, 0.551581, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -304.0
+offset_right = 343.0
+offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 36
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 36
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 28
-
-[node name="TitleContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+[node name="TitleContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"LargeTitleLabel"
 text = "<TITLE>"
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
-[node name="SubTitleLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+
+[node name="SubTitleLabel" type="Label" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54099, 0.54099, 0.54099, 1)
 text = "Drop dem!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ActionsContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="ActionsContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="PlayButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_type_variation = &"LargeMenuButton"
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer"]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_type_variation = &"LargeMenuButton"
 disabled = true
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_type_variation = &"LargeMenuButton"
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer/PlayButton" to="." method="play"]
-[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer/QuitButton" to="." method="quit"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer/PlayButton" to="." method="play"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsContainer/QuitButton" to="." method="quit"]

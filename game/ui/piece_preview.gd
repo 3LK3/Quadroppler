@@ -15,6 +15,12 @@ func _on_next_piece_set(next_piece: PieceData) -> void:
 	
 	_preview_piece = _PIECE_SCENE.instantiate()
 	_preview_piece.piece_data = next_piece
-	# _preview_piece.tile_texture = tile_texture
 	_preview_piece.position = Vector2.ZERO
+	if next_piece.get_bounding_box_size().y > 2:
+		# Center pieces: explicitly made for standard pieces.
+		# Just move pieces down if y > 2 (not the cube) to center them.
+		# Works for default pieces. May not work for others.
+		_preview_piece.position.y += 0.5 * 32.0
+		
 	preview_viewport.add_child(_preview_piece)
+	
