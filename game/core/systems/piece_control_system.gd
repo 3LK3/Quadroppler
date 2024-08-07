@@ -7,6 +7,7 @@ signal piece_locked(lines_removed: int)
 
 @export_category("Tile")
 @export var tile_texture: Texture2D
+@export var tile_size: Vector2i
 
 var _piece_scene: PackedScene = preload("res://game/core/pieces/piece.tscn")
 
@@ -35,6 +36,7 @@ func spawn_piece(piece_data: PieceData) -> bool:
 	_controlled_piece.tile_texture = tile_texture
 	_controlled_piece.piece_data = piece_data
 	_controlled_piece.position = _get_piece_center_position(_controlled_piece_grid_position, piece_data)
+	_controlled_piece.tile_size = tile_size
 	add_child(_controlled_piece)
 
 	return true
@@ -71,15 +73,15 @@ func _can_spawn_piece(piece_data: PieceData, piece_position: Vector2i) -> bool:
 	
 func _get_piece_center_position(grid_position: Vector2i, piece_data: PieceData) -> Vector2:
 	var box: Vector2i = piece_data.get_bounding_box_size()
-	var box_center: Vector2 = Vector2((box.x * 32) / 2.0, (box.y * 32) / 2.0)
+	var box_center: Vector2 = Vector2((box.x * tile_size.x) / 2.0, (box.y * tile_size.y) / 2.0)
 	
 	# some pieces bounding box exceeds the range of the tile system. in those cases we have to add the offset manually
 	if grid_position.x < 0:
 		# take the coordinate of the first column and add the offset into negative
-		return tile_system.get_local_position(Vector2i(0, grid_position.y)) + Vector2(grid_position.x * 32, 0) + box_center
+		return tile_system.get_local_position(Vector2i(0, grid_position.y)) + Vector2(grid_position.x * tile_size.x, 0) + box_center
 	elif grid_position.x >= tile_system.columns:
 		# take the last column and add overflowing offset
-		return tile_system.get_local_position(Vector2i(tile_system.columns - 1, grid_position.y)) + Vector2((tile_system.columns - grid_position.x) * 32, 0) + box_center
+		return tile_system.get_local_position(Vector2i(tile_system.columns - 1, grid_position.y)) + Vector2((tile_system.columns - grid_position.x) * tile_size.x, 0) + box_center
 	else:
 		return tile_system.get_local_position(grid_position) + box_center
 

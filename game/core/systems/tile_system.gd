@@ -5,7 +5,7 @@ extends Node2D
 @export var rows: int = 20
 
 @export_category("Tiles")
-@export var tile_size: Vector2i = Vector2i(32, 32)
+@export var tile_size: Vector2i
 
 const _TILE_SCENE: PackedScene = preload ("res://game/core/tiles/tile.tscn")
 

@@ -14,6 +14,8 @@ extends Node2D
 	set(value):
 		_tile_texture = value
 
+@export var tile_size: Vector2i
+
 const _TILE_SCENE: PackedScene = preload ("res://game/core/tiles/tile.tscn")
 
 var _piece_data: PieceData
@@ -46,12 +48,12 @@ func _setup_tiles() -> void:
 
 	if is_instance_valid(piece_data):
 		var box: Vector2i = piece_data.get_bounding_box_size()
-		var x0: float = -(box.x * 32.0) / 2.0
-		var y0: float = -(box.y * 32.0) / 2.0
+		var x0: float = -(box.x * tile_size.x) / 2.0
+		var y0: float = -(box.y * tile_size.y) / 2.0
 		for tile_coord: Vector2i in piece_data.get_coordinates():
 			var tile: Tile = _TILE_SCENE.instantiate()
 			tile.texture = _tile_texture
 			tile.color = piece_data.color
 			tile.grid_position = tile_coord
-			tile.position = Vector2(x0 + (tile_coord.x * 32.0), y0 + (tile_coord.y * 32.0))
+			tile.position = Vector2(x0 + (tile_coord.x * tile_size.x), y0 + (tile_coord.y * tile_size.y))
 			add_child(tile)

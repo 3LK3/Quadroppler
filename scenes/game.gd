@@ -3,7 +3,7 @@ extends Node
 
 @onready var gameplay: Gameplay = %Gameplay
 
-var game_over_scene: PackedScene = preload ("res://game/ui/game_over_screen.tscn")
+var game_over_scene: PackedScene = preload ("res://game/ui/screens/game_over_screen.tscn")
 var _game_over_screen: GameOverScreen
 
 func _ready():
