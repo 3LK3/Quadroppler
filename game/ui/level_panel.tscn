@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cam2t0bj4ohvp"]
 
-[ext_resource type="Script" path="res://game/ui/level_info_panel.gd" id="1_u1ci1"]
+[ext_resource type="Script" path="res://game/ui/level_panel.gd" id="1_u1ci1"]
 [ext_resource type="Texture2D" uid="uid://durrfkh617a34" path="res://assets/textures/tilesets/board/wall_dungeon.png" id="1_vwedq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gjl2"]
@@ -18,7 +18,7 @@ bg_color = Color(0, 0, 0, 0.470588)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bmys"]
 bg_color = Color(0.186777, 0.00205583, 0.302462, 1)
 
-[node name="LevelInfoPanel" type="Control"]
+[node name="LevelPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

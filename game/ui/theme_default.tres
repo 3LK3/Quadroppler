@@ -18,5 +18,7 @@ LargeTitleLabel/font_sizes/font_size = 42
 LargeTitleLabel/fonts/font = ExtResource("2_th3ja")
 LargeValueLabel/base_type = &"Label"
 LargeValueLabel/font_sizes/font_size = 24
+ScoreAddedPointsLabel/base_type = &"Label"
+ScoreAddedPointsLabel/font_sizes/font_size = 16
 ValueLabel/base_type = &"Label"
 ValueLabel/font_sizes/font_size = 11

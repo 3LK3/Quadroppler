@@ -2,7 +2,29 @@
 
 > Drop dem!
 
-## Style guide
+## Gameplay
+
+### Scoring
+
+https://tetris.wiki/Scoring#Recent_guideline_compatible_games
+
+|Action			|Points
+|---------------|-------
+|Lines
+|Single			|100 x level
+|Double			|300 x level
+|Triple			|500 x level
+|Quadrople		|800 x level; difficulty
+|Drop
+|Soft			|1 per cell
+|Hard			|2 per cell
+|Perfect Clear
+|Single			|800 x level
+|Double			|1200 x level
+|Triple			|1800 x level
+|Quadrople		|2000 x level
+
+## Development
 
 ### Version Control
 

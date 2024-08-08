@@ -1,11 +1,11 @@
-class_name LevelDisplay
-extends VBoxContainer
+class_name LevelPanel
+extends Control
 
 @export var gameplay: Gameplay
 
 @onready var lines_progress_bar: ProgressBar = %LinesProgressBar
 @onready var lines_progress_label: Label = %LinesProgressLabel
-@onready var level_value_label: Label = %LevelValueLabel
+@onready var current_level_label: Label = %CurrentLevelLabel
 
 func _ready():
 	gameplay.level_changed.connect(_on_level_changed)
@@ -17,7 +17,7 @@ func _ready():
 	_update_lines(0)
 
 func _update_level(level: int) -> void:
-	level_value_label.text = "%d" % level
+	current_level_label.text = "%d" % level
 
 func _update_lines(lines: int) -> void:
 	lines_progress_bar.value = lines
@@ -26,5 +26,5 @@ func _update_lines(lines: int) -> void:
 func _on_level_changed(new_level: int) -> void:
 	_update_level(new_level)
 	
-func _on_lines_removed(_lines_removed: int) -> void:
-	_update_lines(gameplay.lines_removed_count)
+func _on_lines_removed(_lines_removed: int, total_lines_removed: int, _level: int) -> void:
+	_update_lines(total_lines_removed)
