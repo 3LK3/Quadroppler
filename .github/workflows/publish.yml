@@ -19,19 +19,19 @@ jobs:
       - name: Setup godot
         run: |
           mkdir ${{ github.workspace }}/.godot_install
-          wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc1/Godot_v4.3-rc1_linux.x86_64.zip
+          wget -O Godot.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc2/Godot_v4.3-rc2_linux.x86_64.zip
           unzip Godot.zip -d ${{ github.workspace }}/.godot_install
-          mv ${{ github.workspace }}/.godot_install/Godot_v4.3-rc1_linux.x86_64 ${{ github.workspace }}/.godot_install/godot
+          mv ${{ github.workspace }}/.godot_install/Godot_v4.3-rc2_linux.x86_64 ${{ github.workspace }}/.godot_install/godot
           echo "${{ github.workspace }}/.godot_install/" >> $GITHUB_PATH
       - name: Verifiy godot
         run: godot --version
       - name: Download godot export templates
         run: |
-          wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc1/Godot_v4.3-rc1_export_templates.tpz
+          wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc2/Godot_v4.3-rc2_export_templates.tpz
           mkdir temp
           unzip Godot_Export_Templates.zip -d temp/
-          sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.rc1/
-          sudo cp -r temp/templates/** /home/runner/.local/share/godot/export_templates/4.3.rc1/
+          sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.rc2/
+          sudo cp -r temp/templates/** /home/runner/.local/share/godot/export_templates/4.3.rc2/
           rm -rf temp
 #      - name: Setup emsdk
 #        uses: mymindstorm/setup-emsdk@v14
