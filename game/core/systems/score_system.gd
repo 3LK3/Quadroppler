@@ -21,7 +21,7 @@ func _ready():
 	gameplay.lines_removed.connect(_on_lines_removed)
 
 func _on_lines_removed(lines: int, _total_lines: int, level: int) -> void:
-	if lines not in range(1, 4):
+	if lines not in range(1, 5):
 		print("That should never happen. Signal should only fire 1 to 4 lines removed.")
 		return
 

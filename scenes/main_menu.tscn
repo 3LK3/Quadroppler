@@ -53,7 +53,7 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"LargeTitleLabel"
-text = "<TITLE>"
+text = "title"
 horizontal_alignment = 1
 vertical_alignment = 2
 

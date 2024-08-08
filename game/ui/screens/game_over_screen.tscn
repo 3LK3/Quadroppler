@@ -1,7 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjre5db36cil5"]
 
 [ext_resource type="Script" path="res://game/ui/screens/game_over_screen.gd" id="1_gvd2o"]
-[ext_resource type="Resource" uid="uid://b4ugfnqadon4u" path="res://scenes/default_transition_options.tres" id="2_ej5c6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wg2h4"]
+bg_color = Color(0.126466, 0.00103327, 0.213294, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -11,7 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gvd2o")
-transition_options = ExtResource("2_ej5c6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -20,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.355297, 0.00755119, 0.551581, 1)
+color = Color(0.356863, 0.00784314, 0.552941, 0.862745)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -32,6 +37,7 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wg2h4")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2

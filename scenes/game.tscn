@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=4 uid="uid://dlytjviag4n4l"]
+[gd_scene load_steps=17 format=4 uid="uid://dlytjviag4n4l"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_b6xy1"]
+[ext_resource type="Resource" uid="uid://b4ugfnqadon4u" path="res://scenes/default_transition_options.tres" id="2_5bd0q"]
 [ext_resource type="Script" path="res://game/core/gameplay/gameplay.gd" id="2_koiq3"]
 [ext_resource type="Script" path="res://game/core/systems/score_system.gd" id="3_rynil"]
 [ext_resource type="Texture2D" uid="uid://d3wderkk0mfw7" path="res://assets/textures/tilesets/pieces/tile_default.png" id="5_lvtgr"]
 [ext_resource type="PackedScene" uid="uid://fm8f76m5j0oa" path="res://game/core/systems/piece_control_system.tscn" id="6_3drwq"]
+[ext_resource type="Script" path="res://game/core/systems/pause_system.gd" id="6_u8mq0"]
 [ext_resource type="TileSet" uid="uid://bnhd1ultmxklo" path="res://game/tilesets/dungeon.tres" id="7_acx1c"]
 [ext_resource type="PackedScene" uid="uid://n06imbgsml0" path="res://game/core/systems/tile_system.tscn" id="8_07xjd"]
 [ext_resource type="PackedScene" uid="uid://civp7q7ucwmlr" path="res://game/ui/score_panel.tscn" id="10_kg3bw"]
+[ext_resource type="Script" path="res://game/ui/game_user_interface.gd" id="12_c0k04"]
 [ext_resource type="PackedScene" uid="uid://cqmdikrl41y5o" path="res://game/ui/next_piece_panel.tscn" id="12_l2yte"]
 [ext_resource type="PackedScene" uid="uid://cam2t0bj4ohvp" path="res://game/ui/level_panel.tscn" id="13_f7pvj"]
 [ext_resource type="PackedScene" uid="uid://ce43ema6vs1hw" path="res://game/ui/debug/frame_rate_label.tscn" id="15_n3xen"]
@@ -18,6 +21,7 @@ bg_color = Color(0.0980392, 0, 0.172549, 0.705882)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_b6xy1")
+transition_options = ExtResource("2_5bd0q")
 
 [node name="Gameplay" type="Node" parent="." node_paths=PackedStringArray("board")]
 unique_name_in_owner = true
@@ -33,6 +37,11 @@ gameplay = NodePath("../Gameplay")
 tile_system = NodePath("../TileSystem")
 tile_texture = ExtResource("5_lvtgr")
 tile_size = Vector2i(16, 16)
+
+[node name="PauseSystem" type="Node" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("6_u8mq0")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(-16, 0)
@@ -72,9 +81,15 @@ offset_right = -148.0
 offset_bottom = 65.0
 score_system = NodePath("../ScoreSystem")
 
-[node name="GameUserInterface" type="CanvasLayer" parent="."]
+[node name="GameUserInterface" type="CanvasLayer" parent="." node_paths=PackedStringArray("game", "gameplay", "pause_system", "score_system")]
 unique_name_in_owner = true
+process_mode = 3
 layer = 0
+script = ExtResource("12_c0k04")
+game = NodePath("..")
+gameplay = NodePath("../Gameplay")
+pause_system = NodePath("../PauseSystem")
+score_system = NodePath("../ScoreSystem")
 
 [node name="DebugCanvas" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

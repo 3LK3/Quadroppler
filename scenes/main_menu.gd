@@ -7,6 +7,9 @@ extends Node
 func _ready():
 	transition_options.create()
 
+	if OS.has_feature("web"):
+		%QuitButton.hide()
+
 	title_label.text = (ProjectSettings.get_setting("application/config/name") as String).to_lower()
 
 	var bg_color: Color = ProjectSettings.get_setting("application/boot_splash/bg_color")

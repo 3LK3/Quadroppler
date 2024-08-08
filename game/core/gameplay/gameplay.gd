@@ -40,6 +40,9 @@ func _ready():
 	board.piece_locked.connect(_on_piece_locked)
 
 func _input(_event):
+	if not _is_game_running:
+		return
+
 	var horizontal_movement: float = Input.get_axis("move_left", "move_right")
 	if horizontal_movement != 0.0:
 		board.move_piece_horizontal(roundi(horizontal_movement))
@@ -64,11 +67,13 @@ func _on_piece_locked(lines: int) -> void:
 		_lines_removed_count += lines
 		print("Removed %d lines (%d current)" % [lines, _lines_removed_count])
 
+		var level_used: int = level
+
 		if _lines_removed_count >= lines_per_level:
 			_increase_level()
 			_lines_removed_count -= lines_per_level
 
-		lines_removed.emit(lines, _lines_removed_count, level)
+		lines_removed.emit(lines, _lines_removed_count, level_used)
 		
 	_spawn_next_tile()
 
@@ -82,8 +87,6 @@ func _spawn_next_tile() -> void:
 
 func _tick() -> void:
 	board.tick()
-	# reset the tick interval so it starts again
-	# _tick_interval = 0.0
 
 func _increase_level() -> void:
 	level += 1
