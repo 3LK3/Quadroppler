@@ -30,6 +30,7 @@ jobs:
           wget -O Godot_Export_Templates.zip https://github.com/godotengine/godot-builds/releases/download/4.3-rc3/Godot_v4.3-rc3_export_templates.tpz
           mkdir temp
           unzip Godot_Export_Templates.zip -d temp/
+          sudo chmod -R 777 /home/runner/.local/share/godot
           sudo mkdir -p /home/runner/.local/share/godot/export_templates/4.3.rc3/
           sudo cp -r temp/templates/** /home/runner/.local/share/godot/export_templates/4.3.rc3/
           rm -rf temp
