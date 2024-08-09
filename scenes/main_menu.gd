@@ -2,13 +2,14 @@ extends Node
 
 @export var transition_options: SceneTransitionOptions
 
-@onready var title_label = %TitleLabel
+@onready var title_label: Label = %TitleLabel
+@onready var quit_button: Button = %QuitButton
 
 func _ready():
 	transition_options.create()
 
 	if OS.has_feature("web"):
-		%QuitButton.hide()
+		quit_button.hide()
 
 	title_label.text = (ProjectSettings.get_setting("application/config/name") as String).to_lower()
 

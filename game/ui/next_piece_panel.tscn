@@ -1,16 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqmdikrl41y5o"]
+[gd_scene load_steps=3 format=3 uid="uid://cqmdikrl41y5o"]
 
 [ext_resource type="Script" path="res://game/ui/next_piece_panel.gd" id="1_cfuki"]
-[ext_resource type="Texture2D" uid="uid://durrfkh617a34" path="res://assets/textures/tilesets/board/wall_dungeon.png" id="1_ddx78"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eiel3"]
-texture = ExtResource("1_ddx78")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[ext_resource type="StyleBox" uid="uid://g02hbb2oqs87" path="res://game/ui/theme/brick_wall_style.tres" id="2_racxq"]
 
 [node name="NextPiecePanel" type="Control"]
 layout_mode = 3
@@ -23,10 +14,11 @@ script = ExtResource("1_cfuki")
 tile_size = Vector2i(16, 16)
 
 [node name="NextPieceContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_right = 160.0
 offset_bottom = 127.0
 size_flags_horizontal = 8
-theme_override_styles/panel = SubResource("StyleBoxTexture_eiel3")
+theme_override_styles/panel = ExtResource("2_racxq")
 
 [node name="MarginContainer" type="MarginContainer" parent="NextPieceContainer"]
 layout_mode = 2

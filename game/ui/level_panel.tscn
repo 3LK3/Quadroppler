@@ -1,16 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cam2t0bj4ohvp"]
+[gd_scene load_steps=5 format=3 uid="uid://cam2t0bj4ohvp"]
 
 [ext_resource type="Script" path="res://game/ui/level_panel.gd" id="1_u1ci1"]
-[ext_resource type="Texture2D" uid="uid://durrfkh617a34" path="res://assets/textures/tilesets/board/wall_dungeon.png" id="1_vwedq"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gjl2"]
-texture = ExtResource("1_vwedq")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+[ext_resource type="StyleBox" uid="uid://g02hbb2oqs87" path="res://game/ui/theme/brick_wall_style.tres" id="2_8v3h3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdrb5"]
 bg_color = Color(0, 0, 0, 0.470588)
@@ -40,7 +31,7 @@ offset_left = 128.0
 offset_right = 224.0
 offset_bottom = 95.0
 grow_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_8gjl2")
+theme_override_styles/panel = ExtResource("2_8v3h3")
 
 [node name="MarginContainer" type="MarginContainer" parent="LevelStatisticsContainer"]
 layout_mode = 2
@@ -75,7 +66,7 @@ anchor_right = 1.0
 offset_right = 128.0
 offset_bottom = 95.0
 grow_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_8gjl2")
+theme_override_styles/panel = ExtResource("2_8v3h3")
 
 [node name="MarginContainer" type="MarginContainer" parent="LinesStatisticsContainer"]
 layout_mode = 2

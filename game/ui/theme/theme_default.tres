@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://btmri1uifbhrh"]
+
+[ext_resource type="StyleBox" uid="uid://b3oxux47hcq5i" path="res://game/ui/theme/wall_hover_style.tres" id="1_gb2l8"]
+[ext_resource type="StyleBox" uid="uid://bk8wj7ttjvqcl" path="res://game/ui/theme/wall_style.tres" id="2_7ep4k"]
+[ext_resource type="StyleBox" uid="uid://bxati20v70mhq" path="res://game/ui/theme/wall_pressed_style.tres" id="3_mp03e"]
+[ext_resource type="FontFile" uid="uid://wu0p7wel5j8j" path="res://assets/fonts/blox2.ttf" id="4_k6cyi"]
+[ext_resource type="FontFile" uid="uid://f4vg70hdst62" path="res://assets/fonts/pixel_splitter.ttf" id="5_7w1sh"]
+
+[resource]
+default_font = ExtResource("5_7w1sh")
+GroupHeaderLabel/base_type = &"Label"
+GroupHeaderLabel/font_sizes/font_size = 11
+GroupSubHeaderLabel/base_type = &"Label"
+GroupSubHeaderLabel/colors/font_color = Color(0.473976, 0.473976, 0.473976, 1)
+GroupSubHeaderLabel/font_sizes/font_size = 7
+Label/font_sizes/font_size = 10
+LargeMenuButton/base_type = &"Button"
+LargeMenuButton/font_sizes/font_size = 13
+LargeMenuButton/styles/hover = ExtResource("1_gb2l8")
+LargeMenuButton/styles/normal = ExtResource("2_7ep4k")
+LargeMenuButton/styles/pressed = ExtResource("3_mp03e")
+LargeTitleLabel/base_type = &"Label"
+LargeTitleLabel/font_sizes/font_size = 36
+LargeTitleLabel/fonts/font = ExtResource("4_k6cyi")
+LargeValueLabel/base_type = &"Label"
+LargeValueLabel/font_sizes/font_size = 24
+ScoreAddedPointsLabel/base_type = &"Label"
+ScoreAddedPointsLabel/font_sizes/font_size = 16
+ValueLabel/base_type = &"Label"
+ValueLabel/font_sizes/font_size = 11

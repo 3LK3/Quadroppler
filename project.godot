@@ -39,7 +39,7 @@ enabled=PackedStringArray("res://addons/quadroppler_core/plugin.cfg", "res://add
 
 [gui]
 
-theme/custom="res://game/ui/theme_default.tres"
+theme/custom="res://game/ui/theme/theme_default.tres"
 
 [input]
 
